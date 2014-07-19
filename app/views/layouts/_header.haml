@@ -19,11 +19,11 @@
               %i.glyphicon.glyphicon-edit
               Edit account
         - else
-          %li
-            = link_to new_user_registration_path do
-              %i.glyphicon.glyphicon-user
-              Sign Up
-          %li
-            = link_to new_user_session_path do
-              %i.glyphicon.glyphicon-log-in
-              Log In
+          %li= link_to 'Sign up', new_user_registration_path
+          %li.divider-vertical
+            %li.dropdown
+              = link_to '#', {"data-toggle" => 'dropdown'} do
+                sign in
+                %strong.caret
+              .dropdown-menu{:style => "padding: 15px; right:0px; left:auto; width:300px;"}
+                = render 'devise/sessions/new'
