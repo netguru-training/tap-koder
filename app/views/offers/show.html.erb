@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @offer.name %>
+</p>
+
+<p>
+  <strong>Destription:</strong>
+  <%= @offer.destription %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @offer.user %>
+</p>
+
+<p>
+  <strong>Code limit:</strong>
+  <%= @offer.code_limit %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>
