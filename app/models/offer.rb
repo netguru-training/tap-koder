@@ -14,6 +14,8 @@ class Offer < ActiveRecord::Base
   validates_date :start_date,
     :after => lambda { Time.current },
     :after_message => "Oops, wrong date"
+  scope :active, ->{ where("start_date < ?", DateTime.current) }
+  scope :pending, ->{ where("start_date >= ?", DateTime.current) }
 
     
   

@@ -1,34 +1,29 @@
 %nav.navbar.navbar-inverse.navbar-fixed-top
-  .container-fluid
+  .container
     .navbar-header
       %button.navbar-toggle{ data: { target: '#myNavbar', toggle: 'collapse' } }
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "tap-koder", "#", class: "navbar-brand"
+      = link_to "tap-koder", root_path, class: "navbar-brand"
     #myNavbar.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li.active
-          = link_to "Home", root_path
-        %li= link_to "Page A", "#"
-        %li= link_to "Page B", "#"
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Page C
-            %b.caret
-          %ul.dropdown-menu
-            %li= link_to "Page C - 1", "#"
-            %li= link_to "Page C - 2", "#"
-            %li= link_to "Page C - 3", "#"
+
       %ul.nav.navbar-nav.navbar-right
         - if signed_in?
           %li
             = link_to destroy_user_session_path, method: :delete do
-              %i.glyphicon.glyphicon-log-out Sign Out
+              %i.glyphicon.glyphicon-log-out 
+              Log Out
+          %li
+            = link_to edit_user_registration_path do
+              %i.glyphicon.glyphicon-edit
+              Edit account
         - else
           %li
             = link_to new_user_registration_path do
-              %i.glyphicon.glyphicon-user Sign Up
+              %i.glyphicon.glyphicon-user
+              Sign Up
           %li
             = link_to new_user_session_path do
-              %i.glyphicon.glyphicon-log-in Login
+              %i.glyphicon.glyphicon-log-in
+              Log In

@@ -1,9 +1,10 @@
 class OffersController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
 
+  expose(:offers_active) { offers.active }
+  expose(:offers_pending) { offers.pending }
   expose(:offer) { Offer.find(params[:id]) }
   expose(:offers) { Offer.all }
-
 
   # GET /offers
   # GET /offers.json
