@@ -16,12 +16,6 @@ ActiveRecord::Schema.define(version: 20140719083319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "codes", force: true do |t|
     t.string   "name"
     t.integer  "offer_id"
@@ -42,26 +36,6 @@ ActiveRecord::Schema.define(version: 20140719083319) do
 
   add_index "offers", ["user_id"], name: "index_offers_on_user_id", using: :btree
 
-  create_table "products", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.float    "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "category_id"
-    t.integer  "user_id"
-  end
-
-  create_table "reviews", force: true do |t|
-    t.text     "content"
-    t.integer  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "product_id"
-    t.integer  "user_id"
-    t.integer  "rate"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -75,8 +49,6 @@ ActiveRecord::Schema.define(version: 20140719083319) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "firstname",              default: "",    null: false
-    t.string   "lastname",               default: "",    null: false
     t.boolean  "admin",                  default: false
   end
 
