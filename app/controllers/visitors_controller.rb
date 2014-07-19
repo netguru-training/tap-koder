@@ -1,7 +1,8 @@
 class VisitorsController < ApplicationController
-  skip_before_filter :authenticate_user!
+  expose(:offers_active) { offers.active }
+  expose(:offers_pending) { offers.pending }
   expose(:offer) { Offer.find(params[:id]) }
-  expose(:offers) { Offer.order("created_at DESC") }
+  expose(:offers) { Offer.all }
 
   def index
   end
