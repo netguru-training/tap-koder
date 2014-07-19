@@ -1,16 +1,43 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = offer.name
-%p
-  %strong Description:
-  = offer.description
-%p
-  %strong User:
-  = offer.user
-%p
-  %strong Code limit:
-  = offer.code_limit
-= link_to 'Edit', edit_offer_path(offer)
+-if !current_user.nil? && current_user == offer.user
+  
 
-= link_to 'Back', offers_path
+  =content_tag :h2, :class=>"title" do
+    =offer.name
+    =content_tag :small, "Offer", :class=>""
+    %p#info
+      As the owner, you can
+      %span#info-edit
+        =link_to "edit", edit_offer_url
+      or
+      %span#info-remove
+        =link_to "remove", offer_url, :method=>'delete'
+      this offert 
+    .row
+      .col-md-4.col-md-offset-1.info-description
+        %p=offer.description
+      .col-md-4.col-md-offset-2.info
+        .row
+          .col-xs-4
+            %p Codes limit
+          .col-xs-8
+            %p=offer.code_limit
+
+        
+        .row
+          .col-xs-4
+            %p status
+          .col-xs-8
+            -if offer.start_date<DateTime.current && offer.codes.count>=offer.code_limit
+              %p.info-danger ended
+            -elsif offer.start_date<DateTime.current
+              %p.info-success available
+              ="(#{offer.codes.count}/#{offer.code_limit} codes used})"
+            -elsif offer.start_date>DateTime.current
+              %p.info-warning not started
+              %p offer will be available at
+              %p=offer.start_date
+        .row
+          .col-xs-4  
+            %p Publisher
+          .col-xs-8
+            %p=publisher offer      
