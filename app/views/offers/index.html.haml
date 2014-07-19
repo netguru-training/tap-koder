@@ -12,7 +12,7 @@
       %tr
         %td= offer.name
         %td= offer.description
-        %td= offer.user
+        %td= offer.user.name
         %td= offer.code_limit
         %td= link_to 'Show', offer
         %td= link_to 'Edit', edit_offer_path(offer)

@@ -1,5 +1,6 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
+  has_many :codes
   cattr_accessor :date, :time
   validates :name,
     :presence => true
