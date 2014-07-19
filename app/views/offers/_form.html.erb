@@ -16,6 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= date_select("offer", "date") %>
+  </div>
+  <div class="field">
+    <%= select_time() %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>

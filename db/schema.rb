@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140719104757) do
     t.integer  "code_limit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date"
   end
 
   add_index "offers", ["user_id"], name: "index_offers_on_user_id", using: :btree
