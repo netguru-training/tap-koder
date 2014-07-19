@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title TapKoder
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+<<<<<<< HEAD
+    .container
+      = render "layouts/header"
+      %p.notice= notice
+      %p.alert= alert
+      = yield
+
+=======
+  
+    = render "layouts/header"
+    = yield
+    
+>>>>>>> done offers start_date

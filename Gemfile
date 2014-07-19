@@ -15,9 +15,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'decent_exposure', '~> 2.3.2'
+
 gem 'rails_12factor', group: :production
 gem 'capybara', group: :test
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
+
+
+
+gem 'pry', group: :development
+
