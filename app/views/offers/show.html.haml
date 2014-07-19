@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = offer.name
+%p
+  %strong Destription:
+  = offer.destription
+%p
+  %strong User:
+  = offer.user
+%p
+  %strong Code limit:
+  = offer.code_limit
+= link_to 'Edit', edit_offer_path(@offer)
+|
+\#{link_to 'Back', offers_path}
