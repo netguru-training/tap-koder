@@ -3,7 +3,7 @@
   %thead
     %tr
       %th Name
-      %th Destription
+      %th Description
       %th User
       %th Code limit
       %th{:colspan => "3"}
@@ -11,7 +11,7 @@
     - offers.each do |offer|
       %tr
         %td= offer.name
-        %td= offer.destription
+        %td= offer.description
         %td= offer.user
         %td= offer.code_limit
         %td= link_to 'Show', offer
