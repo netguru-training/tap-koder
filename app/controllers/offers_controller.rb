@@ -1,11 +1,13 @@
 class OffersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+
+  expose(:offer) { Offer.find(params[:id]) }
+  expose(:offers) { Offer.all }
+
 
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
   end
 
   # GET /offers/1
@@ -15,7 +17,7 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
-    @offer = Offer.new
+    self.offer = Offer.new
   end
 
   # GET /offers/1/edit
@@ -25,15 +27,15 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
-    @offer = Offer.new(offer_params)
+    self.offer = Offer.new(offer_params)
 
     respond_to do |format|
-      if @offer.save
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
-        format.json { render :show, status: :created, location: @offer }
+      if offer.save
+        format.html { redirect_to offer, notice: 'Offer was successfully created.' }
+        format.json { render :show, status: :created, location: offer }
       else
         format.html { render :new }
-        format.json { render json: @offer.errors, status: :unprocessable_entity }
+        format.json { render json: offer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,12 +44,12 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1.json
   def update
     respond_to do |format|
-      if @offer.update(offer_params)
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @offer }
+      if self.offer.update(offer_params)
+        format.html { redirect_to offer, notice: 'Offer was successfully updated.' }
+        format.json { render :show, status: :ok, location: offer }
       else
         format.html { render :edit }
-        format.json { render json: @offer.errors, status: :unprocessable_entity }
+        format.json { render json: offer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +57,7 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
-    @offer.destroy
+    self.offer.destroy
     respond_to do |format|
       format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,10 +65,6 @@ class OffersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_offer
-      @offer = Offer.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
