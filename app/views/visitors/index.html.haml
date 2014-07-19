@@ -1,9 +1,22 @@
-%div
-  %h2 Listing offers
+.row
+  .col-sm-12.col-md-12.col-lg-12
+    %h1 Active offers
+    - offers_active.each do |offer|
+      .col-sm-6.col-md-2.col-lg-2
+        .thumbnail
+          .caption
+            %h3= offer.name
+            %p= offer.description
+            %p
+              = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get
 
-%table
-  - offers.each do |offer|
-    %tr
-      %td= offer.name
-      %td
-        = link_to 'Go to offer', offer_path(offer) # needs custom route for visitors#show
+  .col-sm-12.col-md-12.col-lg-12
+    %h1 Pending offers
+    - offers_pending.each do |offer|
+      .col-sm-6.col-md-2.col-lg-2
+        .thumbnail
+          .caption
+            %h3= offer.name
+            %p= offer.description
+            %p
+              = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get

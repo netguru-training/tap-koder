@@ -16,7 +16,4 @@ class Offer < ActiveRecord::Base
     :after_message => "Oops, wrong date"
   scope :active, ->{ where("start_date < ?", DateTime.current) }
   scope :pending, ->{ where("start_date >= ?", DateTime.current) }
-
-    
-  
 end
