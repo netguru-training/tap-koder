@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   expose(:offer) { Offer.find(params[:id]) }
   expose(:offers) { Offer.all }
@@ -13,6 +13,11 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
+    if user_signed_in?
+      render :show
+    else
+      render :limited
+    end
   end
 
   # GET /offers/new
