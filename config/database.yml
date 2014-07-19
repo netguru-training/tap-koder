@@ -8,13 +8,13 @@ connection: &connection
 
 development:
   <<: *connection
-  database: workshops_development
+  database: tapkoder_development
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: workshops_production
+  database: tapkoder_production
 
 test: &test
   <<: *connection
-  database: workshops_test
+  database: tapkoder_test
