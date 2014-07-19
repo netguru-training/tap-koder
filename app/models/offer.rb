@@ -11,7 +11,9 @@ class Offer < ActiveRecord::Base
      :only_integer => true
     },
    :presence => true
-  validates_date :start_date, :after => lambda { Time.now }
+  validates_date :start_date,
+    :after => lambda { Time.current },
+    :after_message => "Oops, wrong date"
 
     
   

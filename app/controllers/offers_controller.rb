@@ -32,8 +32,9 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
+    
     self.offer = Offer.new(offer_params)
-
+    self.offer.user = current_user
     respond_to do |format|
       if offer.save
         format.html { redirect_to offer, notice: 'Offer was successfully created.' }
