@@ -26,4 +26,4 @@ end
 
 
 gem 'pry', group: :development
-
+gem 'validates_timeliness', '~> 3.0'
