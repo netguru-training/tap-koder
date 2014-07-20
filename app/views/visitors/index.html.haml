@@ -23,8 +23,6 @@
             - else
               %p
                 Codes used:
-                %span#js_offer_used= offer.codes_used
-                \/
-                = offer.code_limit
+                =codes_used offer
             %p
               = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get
