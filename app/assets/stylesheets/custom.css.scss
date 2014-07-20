@@ -28,16 +28,24 @@ body {
 .info-danger{
   color:red;
 }
-.info .row:nth-child(2n){
-  background-color: #eee;
-}
+
 .info{
-  border: 1px solid #eee;
-  margin-top: 30px;
-}
+   border: 1px solid #eee;
+   margin-top: 30px;
+  .row:nth-child(2n) {
+    background-color: #eee;
+  }
+ }
+
 .info-description p{
   border: 1px solid #eee;
   margin-top: 30px;
   font-size: 14px;
   padding: 25px;
+}
+.dropdown-menu.login{
+  padding: 15px;
+  right:0px;
+  left:auto;
+  width:300px;
 }
