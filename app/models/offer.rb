@@ -18,4 +18,8 @@ class Offer < ActiveRecord::Base
   def codes_exhausted?
     codes_used >= code_limit
   end
+
+  def ip_extract
+    codes.pluck(:ip)
+  end
 end

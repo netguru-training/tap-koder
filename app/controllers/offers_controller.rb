@@ -31,6 +31,7 @@ class OffersController < ApplicationController
       gon.interval = true
       respond_to do |format|
         if current_user.present? && current_user == offer.user
+          gon.ips = offer.ip_extract
           format.html { render :show }
           format.json { render :show, layout: nil }
         else
