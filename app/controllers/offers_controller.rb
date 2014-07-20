@@ -10,12 +10,19 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
+    gon.url = url_for offer
+    gon.interval = true
+    
     if user_signed_in?
-      render :index
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render :index, layout: nil }
+      end
     else
       redirect_to root_path
     end
-  end
+  end    
+
 
   # GET /offers/1
   # GET /offers/1.json
@@ -28,6 +35,7 @@ class OffersController < ApplicationController
           format.json { render :show, layout: nil }
         else
           format.html { render :limited }
+          format.json { render :show, layout: nil }
         end
       end
   end
