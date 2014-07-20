@@ -16,7 +16,8 @@
           %td= offer.user.name
           %td= offer.code_limit
           %td= link_to 'Show', offer
-          %td= link_to 'Edit', edit_offer_path(offer)
-          %td= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }
+          - if current_user == offer.user
+            %td= link_to 'Edit', edit_offer_path(offer)
+            %td= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }
   %br/
-  = link_to 'New Offer', new_offer_path
+  = button_to "New Offer", new_offer_path, class: "btn btn-primary", method: :get
