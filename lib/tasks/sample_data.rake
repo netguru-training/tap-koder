@@ -25,7 +25,7 @@ end
 def make_content
   users = User.all
   users.each do |user|
-    5.times do
+    2.times do
       name = Faker::Commerce.product_name
       description = Faker::Lorem.sentence
       code_limit = rand(1..5)
