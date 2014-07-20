@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def code_email(code)
     @email   = code.email
     @code    = code.code
-    @company = code.offer.user.name
+    @company = code.offer.user.nil? ? "Unknown" : code.offer.user.name
     mail(to: @email, subject: "Your code from #{@company}")
   end
 end
