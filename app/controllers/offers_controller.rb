@@ -12,6 +12,7 @@ class OffersController < ApplicationController
   def index
     gon.url = url_for offers_url
     gon.interval = true
+    gon.array = true
     
     if user_signed_in?
       respond_to do |format|

@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "tap-coder@coder.com"
   
   def code_email(code)
     @email   = code.email
