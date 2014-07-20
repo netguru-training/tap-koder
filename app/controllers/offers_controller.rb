@@ -10,7 +10,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    gon.url = url_for offer
+    gon.url = url_for offers_url
     gon.interval = true
     
     if user_signed_in?
@@ -21,7 +21,7 @@ class OffersController < ApplicationController
     else
       redirect_to root_path
     end
-  end    
+  end
 
 
   # GET /offers/1
