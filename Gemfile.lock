@@ -65,6 +65,11 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    gon (5.1.1)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -119,6 +124,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    request_store (1.0.7)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -187,6 +193,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl_rails
+  gon
   haml (~> 4.0.5)
   jbuilder (~> 2.0)
   jquery-rails

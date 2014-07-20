@@ -27,11 +27,13 @@
           .col-xs-4
             %p status
           .col-xs-8
-            -if offer.start_date<DateTime.current && offer.codes.count>=offer.code_limit
+            -if 1==2#offer.start_date<DateTime.current && offer.codes.count>=offer.code_limit
               %p.info-danger ended
-            -elsif offer.start_date<DateTime.current
+            -elsif 1==1#offer.start_date<DateTime.current
               %p.info-success available
-              ="(#{offer.codes.count}/#{offer.code_limit} codes used})"
+              %span#js_offer_used= offer.codes_used
+              /
+              #{offer.code_limit} codes used
             -elsif offer.start_date>DateTime.current
               %p.info-warning not started
               %p offer will be available at

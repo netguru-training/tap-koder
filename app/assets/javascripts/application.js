@@ -13,5 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+
+
+
+// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+
+function refresh_codes_used(){
+    var jqxhr = $.getJSON( gon.url )
+    .done(function(data) {
+      $('#js_offer_used').text(data.codes_used);
+    });
+};
+
+$(document).ready(function() {
+  if ( typeof gon.interval !== 'undefined' && gon.interval == true ) {
+    window.setInterval(function(){refresh_codes_used()}, 10000);
+    gon.interval = false;
+}
+
+});
+
 //= require turbolinks
 //= require_tree .

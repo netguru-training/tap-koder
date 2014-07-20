@@ -25,6 +25,6 @@ group :development, :test do
 end
 
 
-
+gem 'gon'
 gem 'pry', group: :development
 gem 'validates_timeliness', '~> 3.0'

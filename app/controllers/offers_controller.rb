@@ -20,11 +20,16 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
-    if user_signed_in?
-      render :show
-    else
-      render :limited
-    end
+      gon.url = url_for offer
+      gon.interval = true
+      respond_to do |format|
+        if user_signed_in?
+          format.html { render :show }
+          format.json { render :show, layout: nil }
+        else
+          format.html { render :limited }
+        end
+      end
   end
 
   # GET /offers/new
