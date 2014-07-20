@@ -43,5 +43,13 @@ $(document).ready(function() {
 
 });
 
+$(document).ready(function() {
+  if ($("#map").length > 0) {
+    console.log("log");
+    IPMapper.initializeMap("map");
+    IPMapper.addIPMarker("109.206.223.85");
+  } 
+})
+
 //= require turbolinks
 //= require_tree .
