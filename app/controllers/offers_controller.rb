@@ -30,7 +30,7 @@ class OffersController < ApplicationController
       gon.url = url_for offer
       gon.interval = true
       respond_to do |format|
-        if user_signed_in?
+        if current_user.present? && current_user == offer.user
           format.html { render :show }
           format.json { render :show, layout: nil }
         else

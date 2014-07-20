@@ -3,7 +3,7 @@
     %h3= offer.name
   %p
     %strong Offered by:
-    = offer.user.name
+    = offer.user.present? ? offer.user.name : "Unknown"
   %p
     = offer.description
   %p
