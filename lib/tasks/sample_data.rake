@@ -29,9 +29,13 @@ def make_content
       name = Faker::Commerce.product_name
       description = Faker::Lorem.sentence
       code_limit = rand(1..5)
-      date = rand(1..30).days.from_now
-      offer = user.offers.create!(name: name, description: description,
-                                             code_limit: code_limit, start_date: date)
+      date_in_future = rand(1..30).days.from_now
+      date_in_past = rand(1..30).days.ago
+      offerpending = user.offers.create!(name: name, description: description,
+                                                          code_limit: code_limit, start_date: date_in_future )
+      offeractive = Offer.new(name: name, description: description,
+                                          code_limit: code_limit, start_date: date_in_past, user_id: user)
+      offeractive.save!(validate: false)
     end
   end
 end
