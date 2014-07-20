@@ -11,3 +11,20 @@
     = offer.codes_used
     \/
     = offer.code_limit
+  %br/
+
+  = form_for [offer, code] do |f|
+    - if code.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(code.errors.count, "error")
+          prohibited this code from being generated:
+        %ul
+          - code.errors.full_messages.each do |message|
+            %li= message
+    .field
+      = f.label :email, "Please enter your email"
+      %br/
+      = f.text_field :email
+    .actions
+      %button{class: "btn btn-large", type: "submit"}= "Send me my code!"

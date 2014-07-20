@@ -5,6 +5,7 @@ class OffersController < ApplicationController
   expose(:offers_pending) { offers.pending }
   expose(:offer) { Offer.find(params[:id]) }
   expose(:offers) { Offer.all }
+  expose(:code) { offer.codes.build }
 
   # GET /offers
   # GET /offers.json
