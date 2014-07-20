@@ -3,10 +3,10 @@
     %h1 Active offers
     - offers_active.each do |offer|
       .col-sm-6.col-md-2.col-lg-2
-        .thumbnail
+        .thumbnail.offer
           .caption
             %h3= offer.name
-            %p= offer.description
+            %p= truncate(offer.description, length: 80, separator: ' ')
             %p
               = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get
 
@@ -14,9 +14,17 @@
     %h1 Pending offers
     - offers_pending.each do |offer|
       .col-sm-6.col-md-2.col-lg-2
-        .thumbnail
+        .thumbnail.offer
           .caption
             %h3= offer.name
-            %p= offer.description
+            %p= truncate(offer.description, length: 80)
+            - if offer.codes_exhausted?
+              %p No more codes!
+            - else
+              %p
+                Codes used:
+                %span#js_offer_used= offer.codes_used
+                \/
+                = offer.code_limit
             %p
               = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get

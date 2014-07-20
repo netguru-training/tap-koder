@@ -14,4 +14,8 @@ class Offer < ActiveRecord::Base
     after_message: "Oops, wrong date"
   scope :active, ->{ where("start_date < ?", DateTime.current) }
   scope :pending, ->{ where("start_date >= ?", DateTime.current) }
+
+  def codes_exhausted?
+    codes_used >= code_limit
+  end
 end
