@@ -8,7 +8,7 @@
       = link_to "tap-koder", root_path, class: "navbar-brand"
     #myNavbar.collapse.navbar-collapse
 
-      %ul.nav.navbar-nav.navbar-right
+      %ul#login.nav.navbar-nav.navbar-right
         - if signed_in?
           %li
             = link_to edit_user_registration_path do
@@ -20,10 +20,11 @@
               Log Out
         - else
           %li= link_to 'Sign up', new_user_registration_path
+          %li.button= link_to 'Sign in', new_user_session_path
           %li.divider-vertical
-            %li.dropdown
+            %li.dropdown.login
               = link_to '#', data: { toggle: 'dropdown' } do
                 Sign in
                 %strong.caret
-              .dropdown-menu.login
+              .dropdown-menu
                 = render 'devise/sessions/new'

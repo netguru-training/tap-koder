@@ -43,9 +43,31 @@ body {
   font-size: 14px;
   padding: 25px;
 }
-.dropdown-menu.login{
-  padding: 15px;
-  right:0px;
-  left:auto;
-  width:300px;
+#login{
+  .dropdown{
+    display: none;
+  }
+  .button{
+    display: block;
+  }
+}
+
+
+
+@media (min-width: 768px) { 
+
+#login{
+  .dropdown{
+    display: block;
+  }
+  .dropdown-menu{
+    padding: 15px;
+    right:0px;
+    left:auto;
+    width:300px;
+  }
+  .button{
+    display: none;
+  }
+}
 }
