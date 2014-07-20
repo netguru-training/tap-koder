@@ -8,6 +8,10 @@
       = link_to "tap-koder", root_path, class: "navbar-brand"
     #myNavbar.collapse.navbar-collapse
 
+      %ul.nav.navbar-nav
+        - if signed_in?
+          %li= link_to "Offers index", offers_path
+
       %ul#login.nav.navbar-nav.navbar-right
         - if signed_in?
           %li
@@ -16,7 +20,7 @@
               Edit account
           %li
             = link_to destroy_user_session_path, method: :delete do
-              %i.glyphicon.glyphicon-log-out 
+              %i.glyphicon.glyphicon-log-out
               Log Out
         - else
           %li= link_to 'Sign up', new_user_registration_path
