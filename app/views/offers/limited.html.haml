@@ -1,12 +1,11 @@
-%p
-  %strong Offer:
-  = offer.name
-%p
-  %strong Offered by:
-  = offer.user.name
-%p
-  %strong Description:
-  = offer.description
-%p
-  %strong Code limit:
-  = offer.code_limit
+.jumbotron  
+  %p
+    %h3= offer.name
+  %p
+    %strong Offered by:
+    = offer.user.name
+  %p
+    = offer.description
+  %p
+    %strong Code limit:
+    = offer.code_limit
