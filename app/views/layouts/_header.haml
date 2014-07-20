@@ -11,19 +11,19 @@
       %ul.nav.navbar-nav.navbar-right
         - if signed_in?
           %li
-            = link_to destroy_user_session_path, method: :delete do
-              %i.glyphicon.glyphicon-log-out 
-              Log Out
-          %li
             = link_to edit_user_registration_path do
               %i.glyphicon.glyphicon-edit
               Edit account
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              %i.glyphicon.glyphicon-log-out 
+              Log Out
         - else
           %li= link_to 'Sign up', new_user_registration_path
           %li.divider-vertical
             %li.dropdown
               = link_to '#', data: { toggle: 'dropdown' } do
-                sign in
+                Sign in
                 %strong.caret
               .dropdown-menu.login
                 = render 'devise/sessions/new'

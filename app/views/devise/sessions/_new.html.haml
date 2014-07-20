@@ -3,7 +3,6 @@
   = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form', :class => 'form-horizontal'}) do |f|
     .control-group
       = f.email_field :email, :autofocus => true, class:'form-control', placeholder:"Email address"
-      = #f.email_field :email, :html=>{:autofocus => true, :placeholder=>'Email', :class=>'form-control'})
     %br
     .control-group
       = f.password_field :password, placeholder: "Password", class: 'form-control'
