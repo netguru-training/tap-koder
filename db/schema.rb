@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719104757) do
+ActiveRecord::Schema.define(version: 20140720074349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "codes", force: true do |t|
-    t.string   "name"
+    t.string   "code"
     t.integer  "offer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "ip"
   end
 
   add_index "codes", ["offer_id"], name: "index_codes_on_offer_id", using: :btree
