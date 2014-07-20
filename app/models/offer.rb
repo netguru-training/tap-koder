@@ -1,6 +1,6 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
-  has_many :codes
+  has_many :codes, dependent: :destroy
   cattr_accessor :date, :time
   validates :name, presence: true
   validates :description, presence: true
