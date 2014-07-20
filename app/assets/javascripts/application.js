@@ -22,7 +22,16 @@
 function refresh_codes_used(){
     var jqxhr = $.getJSON( gon.url )
     .done(function(data) {
-      $('#js_offer_used').text(data.codes_used);
+      console.log(data);
+      if (typeof gon.array !== 'undefined' && gon.array==true ) {
+        for ( var i=0; i<data.length; i++ ){
+            console.log("$('#js_offer_used'" + data[i].id + ").text(" + data[i].codes_used +")");
+            $('#js_offer_used_' + data[i].id).text(data[i].codes_used);
+        }
+      }
+      else{
+        $('#js_offer_used').text(data.codes_used);
+      }
     });
 };
 

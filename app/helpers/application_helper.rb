@@ -18,7 +18,7 @@ module ApplicationHelper
       end
     ret = 
       content_tag :div, :class => html_class do
-        concat(content_tag :span, offer.codes_used, :id=>'js_offer_used')
+        concat(content_tag :span, offer.codes_used, :id=>"js_offer_used_#{offer.id}")
         concat ' / '
         concat(content_tag :spam, offer.code_limit)
       end
