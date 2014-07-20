@@ -11,6 +11,7 @@
       %ul.nav.navbar-nav
         - if signed_in?
           %li= link_to "Offers index", offers_path
+          %li= link_to "New offer", new_offer_path
 
       %ul#login.nav.navbar-nav.navbar-right
         - if signed_in?
