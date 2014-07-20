@@ -10,6 +10,7 @@ class CodesController < ApplicationController
       code.ip = request.remote_ip
       code.code = SecureRandom.hex
       if code.save
+        UserMailer.code_email(code).deliver
         respond_to do |format|
           format.html { redirect_to offer_path(offer), notice: 'Code was successfully generated and sent to your email.' }
         end
