@@ -11,7 +11,9 @@ class CodesController < ApplicationController
         format.html { redirect_to offer_path(offer), notice: 'Code was successfully generated and sent to your email.' }
       end
     else
-      format.html { render :new }
+      respond_to do |format|
+        format.html { render :new }
+    end
     end
   end
 
