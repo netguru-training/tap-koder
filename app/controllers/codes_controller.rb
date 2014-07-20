@@ -4,10 +4,11 @@ class CodesController < ApplicationController
   expose(:code) { offer.codes.build(code_params) }
 
   def create
-    # add ip save
+    code.ip = request.remote_ip
     if code.save
-      # add proper redirects and stuff
-      format.html { redirect_to offer, notice: 'Code was successfully generated and sent to your email.' }
+      respond_to do |format|
+        format.html { redirect_to offer_path(offer), notice: 'Code was successfully generated and sent to your email.' }
+      end
     else
       format.html { render :new }
     end
