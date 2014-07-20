@@ -9,7 +9,7 @@
             %p= truncate(offer.description, length: 80, separator: ' ')
             %p
               Codes used:
-              =codes_used offer            
+              =codes_used offer
             %p
             %p.offer-button
               = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get
@@ -22,11 +22,6 @@
           .caption
             %h3= offer.name
             %p= truncate(offer.description, length: 80, separator: ' ')
-            - if offer.codes_exhausted?
-              %p No more codes!
-            - else
-              %p
-                Codes used:
-                =codes_used offer
-            %p.offer-button
-              = button_to "Go to offer", offer_path(offer), class: "btn btn-primary", method: :get
+            %p Starts in:
+            %p= distance_of_time_in_words(offer.start_date, Time.now)
+
