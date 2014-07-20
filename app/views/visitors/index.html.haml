@@ -17,7 +17,7 @@
         .thumbnail.offer
           .caption
             %h3= offer.name
-            %p= truncate(offer.description, length: 80)
+            %p= truncate(offer.description, length: 80, separator: ' ')
             - if offer.codes_exhausted?
               %p No more codes!
             - else

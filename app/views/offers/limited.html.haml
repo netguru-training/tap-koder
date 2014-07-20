@@ -4,8 +4,7 @@
   %p
     %strong Offered by:
     = offer.user.present? ? offer.user.name : "Unknown"
-  %p
-    = offer.description
+  %p= offer.description
   %p
     %strong Codes used:
     %span#js_offer_used= offer.codes_used
